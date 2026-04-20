@@ -77,8 +77,8 @@ class IcebergRestCatalog(IcebergCatalogBase):
         if catalog.connection.sigv4:
             parameters = {
                 **parameters,
-                "rest.sigv4": True,
-                "rest.signing_region": catalog.connection.sigv4.signingRegion,
-                "rest.signing_name": catalog.connection.sigv4.signingName,
+                "rest.sigv4-enabled": "true",
+                "rest.signing-region": catalog.connection.sigv4.signingRegion,
+                "rest.signing-name": catalog.connection.sigv4.signingName,
             }
         return load_rest(catalog.name, parameters)
